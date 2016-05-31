@@ -1,16 +1,15 @@
-# Spectacle Boilerplate
+# React presentation
 
-## Reference
 
-The Spectacle core API is available at [https://github.com/FormidableLabs/spectacle/blob/master/README.markdown](https://github.com/FormidableLabs/spectacle/blob/master/README.markdown).
+## Created using
+
+[spectacle](https://github.com/FormidableLabs/spectacle)  
+[spectacle-code-slide](https://github.com/thejameskyle/spectacle-code-slide)  
+
 
 ## Development
 
-After downloading the boilerplate, your first order of business is to open terminal and run `npm install`
-
-Next, run `rm -R .git` to remove the existing version control.
-
-Then, to start up the local server, run `npm start`
+To start up the local server, run `npm start`
 
 Open a browser and hit [http://localhost:3000](http://localhost:3000), and we are ready to roll
 

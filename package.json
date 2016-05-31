@@ -1,7 +1,7 @@
 {
-  "name": "spectacle-boilerplate",
-  "version": "1.0.1",
-  "description": "ReactJS Powered Presentation Framework",
+  "name": "react-presentation",
+  "version": "0.1.0",
+  "description": "ReactJS Presentation",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf dist",
@@ -10,13 +10,14 @@
     "deploy": "npm run clean & npm run build && surge -p .",
     "start": "cross-env NODE_ENV=development node server.js"
   },
-  "author": "",
+  "author": "André Junges",
   "license": "MIT",
   "dependencies": {
     "normalize.css": "3.0.3",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
-    "spectacle": "^1.0.0"
+    "spectacle": "^1.0.0",
+    "spectacle-code-slide": "^0.1.10"
   },
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",
