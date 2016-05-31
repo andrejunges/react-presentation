@@ -41,6 +41,7 @@ require("spectacle/lib/themes/default/index.css");
 const images = {
   reactLogo: require("../assets/reactjs-logo.png"),
   reactDOM: require("../assets/react-image.png"),
+  reactDevtools: require("../assets/react-devtools.png")
 };
 
 preloader(images);
@@ -110,19 +111,21 @@ export default class Presentation extends React.Component {
             textSize=".6em"
             code={require("raw!../assets/todo-example")}
             ranges={[
-              { loc: [0, 1] },
-              { loc: [2, 6] }, //, title: "Importing react / Creating an array.."
-              { loc: [7, 17] }, //, title: "Creating the ES6 component / Constructor"
-              { loc: [18, 30] }, //, title: "Creating the item elements by mapping through the list."
-              { loc: [19, 22] },
-              { loc: [23, 29] }, // render return
-              { loc: [31, 35] }, // addEvent()
-              { loc: [37, 42] }, //, title: "Item Component"
-              { loc: [43, 48] },
-              { loc: [49, 52] },
-              { loc: [53, 60] },
-              { loc: [61, 69] },
-              { loc: [70, 72] },
+              { loc: [0, 1], title: "Importing React" },
+              { loc: [2, 6], title: "Creating an array" },
+              { loc: [7, 36] }, //TodoList Component
+              { loc: [9, 17], title: "Contructor Method" },
+              { loc: [18, 30], title: "Render Method" },
+              { loc: [19, 22] }, //Creating TodoItem by mapping through the list
+              { loc: [23, 29] },
+              { loc: [31, 35], title: "addEvent Method" },
+              { loc: [37, 42], title: "TodoItem Component" },
+              { loc: [43, 69] }, //NewTodoItem Component
+              { loc: [44, 48] }, //Contructor Method
+              { loc: [49, 52] }, //componentDidMount
+              { loc: [53, 60] }, //render
+              { loc: [61, 68] }, //onSubmit
+              { loc: [70, 72], title: "Rendering component in the DOM" },
             ]} />
 
 
@@ -136,78 +139,13 @@ export default class Presentation extends React.Component {
             </List>
           </Slide>
 
+          <Slide transition={["spin"]} bgColor="#333" textColor="primary">
+            <Heading size={3} textAlign="left" caps textColor="#FFF" textFont="primary">Devtools</Heading>
+            <Appear>
+              <Image src={images.reactDevtools.replace("/", "")} margin="40px 0 0 0" />
+            </Appear>
+          </Slide>
 
-          <Slide transition={["slide"]} bgDarken={0.75}>
-            <Appear fid="1">
-              <Heading size={1} caps fit textColor="primary">
-                Full Width
-              </Heading>
-            </Appear>
-            <Appear fid="2">
-              <Heading size={1} caps fit textColor="tertiary">
-                Adjustable Darkness
-              </Heading>
-            </Appear>
-            <Appear fid="3">
-              <Heading size={1} caps fit textColor="primary">
-                Background Imagery
-              </Heading>
-            </Appear>
-          </Slide>
-          <Slide transition={["zoom", "fade"]} bgColor="primary">
-            <Heading caps fit>Flexible Layouts</Heading>
-            <Layout>
-              <Fill>
-                <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                  Left
-                </Heading>
-              </Fill>
-              <Fill>
-                <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                  Right
-                </Heading>
-              </Fill>
-            </Layout>
-          </Slide>
-          <Slide transition={["slide"]} bgColor="black">
-            <BlockQuote>
-              <Quote>Wonderfully formatted quotes</Quote>
-              <Cite>Ken Wheeler</Cite>
-            </BlockQuote>
-          </Slide>
-          <Slide transition={["spin", "zoom"]} bgColor="tertiary">
-            <Heading caps fit size={1} textColor="primary">
-              Inline Markdown
-            </Heading>
-            <Markdown>
-              {`
-
-You can write inline images, [Markdown Links](http://commonmark.org), paragraph text and most other markdown syntax
-* Lists too!
-* With ~~strikethrough~~ and _italic_
-* And lets not forget **bold**
-              `}
-            </Markdown>
-          </Slide>
-          <Slide transition={["slide", "spin"]} bgColor="primary">
-            <Heading caps fit size={1} textColor="tertiary">
-              Smooth
-            </Heading>
-            <Heading caps fit size={1} textColor="secondary">
-              Combinable Transitions
-            </Heading>
-          </Slide>
-          <Slide transition={["slide"]} bgColor="primary">
-            <Heading size={1} caps fit textColor="tertiary">
-              Your presentations are interactive
-            </Heading>
-            <Interactive/>
-          </Slide>
-          <Slide transition={["spin", "slide"]} bgColor="tertiary">
-            <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
-              Made with love in Seattle by
-            </Heading>
-          </Slide>
         </Deck>
       </Spectacle>
     );
