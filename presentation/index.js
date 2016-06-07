@@ -41,7 +41,9 @@ require("spectacle/lib/themes/default/index.css");
 const images = {
   reactLogo: require("../assets/reactjs-logo.png"),
   reactDOM: require("../assets/react-image.png"),
-  reactDevtools: require("../assets/react-devtools.png")
+  reactDevtools: require("../assets/react-devtools.png"),
+  reactNative: require("../assets/react-native.png"),
+  reactNativeBridge: require("../assets/react-native-bridge.png"),
 };
 
 preloader(images);
@@ -144,6 +146,45 @@ export default class Presentation extends React.Component {
             <Appear>
               <Image src={images.reactDevtools.replace("/", "")} margin="40px 0 0 0" />
             </Appear>
+          </Slide>
+
+          <Slide transition={["zoom"]} bgColor="#f1f1f1">
+            <Layout style={{alignItems: "center"}}>
+              <Fill>
+                <Heading size={1} caps lineHeight={1} textColor="#333">React Native</Heading>
+              </Fill>
+              <Fill>
+                <Image src={images.reactNative.replace("/", "")} margin="0px auto 40px" height="293px"/>
+              </Fill>
+            </Layout>
+          </Slide>
+
+          <Slide transition={["fade"]} bgColor="#f1f1f1" textColor="primary">
+            <Heading size={2} caps lineHeight={1} textColor="#333">React Native</Heading>
+            <Layout style={{alignItems: "center"}}>
+              <Fill>
+                  <List>
+                    <Appear><ListItem>Free, open source</ListItem></Appear>
+                    <Appear><ListItem>Live-reload</ListItem></Appear>
+                    <Appear><ListItem>OTA Updates</ListItem></Appear>
+                    <Appear><ListItem>Flexbox layout</ListItem></Appear>
+                    <Appear><ListItem>Same skill-set, similar APIs</ListItem></Appear>
+                    <Appear><ListItem>Share common code</ListItem></Appear>
+                    <Appear><ListItem>Native UI Components</ListItem></Appear>
+                  </List>
+              </Fill>
+              <Fill>
+                <Appear>
+                    <Image src={images.reactNativeBridge.replace("/", "")} margin="0px auto 40px" height="150px"/>
+                </Appear>
+              </Fill>
+            </Layout>
+          </Slide>
+
+          <Slide transition={["slide"]} bgColor="#333">
+            <BlockQuote>
+              <Quote textColor="#FFF">"Learn once write anywhere."</Quote>
+            </BlockQuote>
           </Slide>
 
         </Deck>
