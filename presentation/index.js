@@ -1,6 +1,7 @@
 // Import React
 import React from "react";
-
+import TodoList from "./TodoList";
+// https://jsfiddle.net/69z2wepo/45085/
 // Import Spectacle Core tags
 import {
   Appear,
@@ -44,6 +45,7 @@ const images = {
   reactDevtools: require("../assets/react-devtools.png"),
   reactNative: require("../assets/react-native.png"),
   reactNativeBridge: require("../assets/react-native-bridge.png"),
+  reactNativeGif: require("../assets/react-native-hot-reload.gif"),
 };
 
 preloader(images);
@@ -114,21 +116,25 @@ export default class Presentation extends React.Component {
             code={require("raw!../assets/todo-example")}
             ranges={[
               { loc: [0, 1], title: "Importing React" },
-              { loc: [2, 6], title: "Creating an array" },
-              { loc: [7, 36] }, //TodoList Component
-              { loc: [9, 17], title: "Contructor Method" },
-              { loc: [18, 30], title: "Render Method" },
-              { loc: [19, 22] }, //Creating TodoItem by mapping through the list
-              { loc: [23, 29] },
-              { loc: [31, 35], title: "addEvent Method" },
-              { loc: [37, 42], title: "TodoItem Component" },
-              { loc: [43, 69] }, //NewTodoItem Component
-              { loc: [44, 48] }, //Contructor Method
-              { loc: [49, 52] }, //componentDidMount
-              { loc: [53, 60] }, //render
-              { loc: [61, 68] }, //onSubmit
-              { loc: [70, 72], title: "Rendering component in the DOM" },
+              { loc: [2, 30] }, //TodoList Component
+              { loc: [4, 12], title: "Contructor Method" },
+              { loc: [13, 25], title: "Render Method" },
+              { loc: [14, 17] }, //Creating TodoItem by mapping through the list
+              { loc: [18, 24] },
+              { loc: [26, 29], title: "addEvent Method" },
+              { loc: [31, 36], title: "TodoItem Component" },
+              { loc: [37, 72] }, //NewTodoItem Component
+              { loc: [39, 47] }, //Contructor Method
+              { loc: [48, 51] }, //componentDidMount
+              { loc: [52, 63] }, //render
+              { loc: [64, 69] }, //onChange
+              { loc: [70, 75] }, //onSubmit
+              { loc: [77, 78], title: "Rendering component in the DOM" },
             ]} />
+
+          <Slide transition={["fade"]} bgColor="#f1f1f1" textColor="primary" align="flex-start">
+            <TodoList />
+          </Slide>
 
 
           <Slide transition={["fade"]} bgColor="#333" textColor="primary">
@@ -161,24 +167,30 @@ export default class Presentation extends React.Component {
 
           <Slide transition={["fade"]} bgColor="#f1f1f1" textColor="primary">
             <Heading size={2} caps lineHeight={1} textColor="#333">React Native</Heading>
-            <Layout style={{alignItems: "center"}}>
+            <Layout style={{alignItems: "center", margin: "40px -80px", justifyContent: "space-between"}}>
               <Fill>
                   <List>
                     <Appear><ListItem>Free, open source</ListItem></Appear>
-                    <Appear><ListItem>Live-reload</ListItem></Appear>
-                    <Appear><ListItem>OTA Updates</ListItem></Appear>
                     <Appear><ListItem>Flexbox layout</ListItem></Appear>
                     <Appear><ListItem>Same skill-set, similar APIs</ListItem></Appear>
-                    <Appear><ListItem>Share common code</ListItem></Appear>
+                    <Appear><ListItem>Share common code - (87%*)</ListItem></Appear>
                     <Appear><ListItem>Native UI Components</ListItem></Appear>
+                    <Appear><ListItem>OTA Updates</ListItem></Appear>
                   </List>
               </Fill>
               <Fill>
                 <Appear>
-                    <Image src={images.reactNativeBridge.replace("/", "")} margin="0px auto 40px" height="150px"/>
+                    <Image src={images.reactNativeBridge.replace("/", "")} margin="0px auto" height="180px"/>
                 </Appear>
               </Fill>
             </Layout>
+          </Slide>
+
+          <Slide transition={["spin"]} bgColor="#f1f1f1" textColor="primary">
+                <Text textColor="#333" textSize="2.2em">Hot Reloading</Text>
+                <Appear>
+                    <Image src={images.reactNativeGif.replace("/", "")} margin="50px auto" height="400px"/>
+                </Appear>
           </Slide>
 
           <Slide transition={["slide"]} bgColor="#333">

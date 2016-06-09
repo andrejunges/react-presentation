@@ -1,10 +1,5 @@
 var React = require("react");
 
-var allItems = []
-allItems.push("Buy ingredients for Crock Pot");
-allItems.push("Pick up chair at IKEA");
-allItems.push("Go see mom");
-
 class TodoList extends React.Component {
 
     constructor(props){
@@ -12,26 +7,25 @@ class TodoList extends React.Component {
         this.addEvent = this.addEvent.bind(this);
 
         this.state = {
-            items: allItems
+            items: ["Ir ao supermercado", "Limpar a casa"]
         }
     }
 
     render() {
-        var items = this.state.items.map((item) => {
-            return <li><TodoItem item={item} /></li>;
+        var items = this.state.items.map((item, i) => {
+            return <li key={i}><TodoItem item={item} /></li>;
         })
 
         return(
             <div>
                 <ul>{items}</ul>
-                <p><NewTodoItem addEvent={this.addEvent} /></p>
+                <div><NewTodoItem addEvent={this.addEvent} /></div>
             </div>
         );
     }
 
-    addEvent(todoItem){
-        allItems.push(todoItem.newItem);
-        this.setState({ allItems });
+    addEvent(todoItem) {
+        this.setState({ items: [...this.state.items, todoItem] });
     }
 }
 
@@ -42,30 +36,43 @@ const TodoItem = (props) => {
 }
 
 class NewTodoItem extends React.Component {
+
     constructor(props) {
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.state = {
+            value: ""
+        }
     }
 
     componentDidMount() {
-        React.findDOMNode(this.refs.itemName).focus();
+        ReactDOM.findDOMNode(this.refs.itemName).focus();
     }
 
     render() {
         return (
             <form onSubmit={this.onSubmit}>
-                <input ref="itemName" type="text" />
+                <input
+                    type="text"
+                    ref="itemName"
+                    onChange={this.onChange}
+                    value={this.state.value} />
             </form>
         );
     }
 
+    onChange(event) {
+        this.setState({
+            value: event.target.value
+        })
+    }
+
     onSubmit(event) {
         event.preventDefault();
-        var input = React.findDOMNode(this.refs.itemName)
-        var newItem = input.value;
-        this.props.addEvent({ newItem });
-        input.value = '';
+        this.props.addEvent(this.state.value);
+        this.setState({ value: "" })
     }
 }
 
-React.render(<TodoList />, document.getElementById('example'));
+ReactDOM.render(<TodoList />, document.getElementById('container'));
