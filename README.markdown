@@ -1,6 +1,6 @@
 # React presentation
 
-[App deployed](http://aspiring-increase.surge.sh/#/4?_k=decnrq)
+[App deployed](http://aspiring-increase.surge.sh)
 
 ## Created using
 
